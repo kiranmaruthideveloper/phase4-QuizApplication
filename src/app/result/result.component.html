@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card mt-3">
+        <div class="heading text-center fst-italic">
+            <h2>Score Card</h2>
+        </div>
+        <div class="d-flex justify-content-between m-2">
+                <div class="image">
+                    <img src="../../assets/angularjs.png" alt="logo" width="50">
+                </div>
+                <div class="quiz-header">
+                    <h4 style="font-family: cursive;">Angular & Typescript Quiz!</h4>
+                </div>
+        </div>
+        <div class="card m-3">
+            <div class="particpant-name text-center">
+                <h4>Showing results for<span style="font-style: italic;" class="text-primary"> {{name}}</span></h4>
+            </div>
+            <div class="text-center">
+                <h1 style="font-size: 20vh;" class="text-success" *ngIf="percentage >= 30">{{totalScore}}</h1>
+                <h1 style="font-size: 20vh;" class="text-danger" *ngIf="percentage < 30">{{totalScore}}</h1>
+                <h1>Score</h1>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div>
+                    <h4>Total Question: {{totalQuestion}}</h4>
+                    <h4>Question Left: {{questionLeft}}</h4>
+                </div>
+                <div>
+                    <h4>Correct Answers: {{correctAnswers}}</h4>
+                    <h4>Incorrect Answers: {{incorrectAnswer}}</h4>
+                </div>
+            </div>
+            <div class="text-center">
+                <h4 class="text-success" *ngIf="percentage >= 30">Pass</h4>
+                <h4 class="text-danger" *ngIf="percentage <= 30">Pass</h4>
+            </div>
+            <div class="text-center p-3">
+                <button class="btn btn-info" routerLink="/question">Re-Attempt</button>
+            </div>
+        </div>
+    </div>
+</div>

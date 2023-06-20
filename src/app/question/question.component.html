@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+                <img src="../../assets/angularjs.png" alt="logo" width="50">
+            </div>
+            <div class="quiz-header">
+                <h4 style="font-family: cursive;">Angular & Typescript Quiz!</h4>
+                <span style="font-style: italic;">Welcome {{name}}</span>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around p-3">
+            <div class="score">
+                <h5>{{points}} Points</h5>
+            </div>
+            <div class="question-remain">
+                <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+            </div>
+            <div class="timer">
+                <h5>{{counter}} sec Time</h5>
+            </div>
+        </div>
+
+        <div class="progress m-3" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped bg-success" [ngStyle]="{'width': progress+'%'}"></div>
+        </div>
+
+        <div class="question">
+            <div class="card">
+                <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+            </div>
+        </div>
+        <div class="options">
+            <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                <li (click) = "answer(currentQuestion+1, option)">
+                    <div class="card">
+                        {{option.text}}
+                    </div>
+                </li>
+                
+            </ol>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button class="btn" (click)="previousQuestion()">
+                <i class="fa text-primary fa-chevron-left fa-3x"></i>
+            </button>
+            <button class="btn" (click)="resetQuiz()">
+                <i class="fa-sharp fa-solid fa-arrows-rotate text-primary fa-3x"></i>
+            </button>
+            <button class="btn" (click)="nextQuestion()" *ngIf="!isLastQuestion">
+                <i class="fa text-primary fa-chevron-right fa-3x"></i>
+            </button>
+            <button class="btn btn-danger" (click)="submitQuiz()" *ngIf="isLastQuestion">
+                <!-- <i class="fa text-primary fa-chevron-right fa-3x"></i> -->
+                submit
+            </button>
+        </div>
+    </div>
+</div>
